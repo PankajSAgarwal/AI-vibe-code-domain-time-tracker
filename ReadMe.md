@@ -1,7 +1,9 @@
 # Vibe coding to build a chrome extension that tracks time spent of each website
 ## Prompt used in perplexity
-You are a expert in chrome MV3 extension. Go ahead and create a chrome plugin  that tracks how long you spend on specific domains (e.g., YouTube, Reddit, Wikipedia) and shows real-time dashboard or pop-up summary with amazing UI.Give me all files and tell me how to install it as i am a newbie! I will give you 100$
-🚀 Domain Time Tracker - Installation Guide
+You are a expert in chrome MV3 extension. Go ahead and create a chrome plugin  that tracks how long you spend on specific domains (e.g., YouTube, Reddit, Wikipedia) and shows real-time dashboard or pop-up summary with amazing UI.Give me all files and tell me how to install it as i am a newbie! I will give you 100$  
+  
+
+### 🚀 Domain Time Tracker - Installation Guide
 Step 1: Download and Setup Files
 Create a new folder called domain-time-tracker on your desktop
 
