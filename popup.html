@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 400px;
+      min-height: 500px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .header {
+      padding: 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .header p {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    .stats-container {
+      padding: 20px;
+    }
+
+    .total-time {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .total-time h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .total-time .time {
+      font-size: 32px;
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    .domain-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .domain-item {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s ease;
+    }
+
+    .domain-item:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .domain-info {
+      flex: 1;
+    }
+
+    .domain-name {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .domain-time {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .domain-percentage {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      background: rgba(255, 255, 255, 0.2);
+      height: 4px;
+      border-radius: 2px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #FFD700, #FFA500);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.7;
+    }
+
+    .no-data img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 15px;
+      opacity: 0.5;
+    }
+
+    .controls {
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-clear {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .btn-clear:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-export {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .btn-export:hover {
+      background: #45a049;
+    }
+
+    /* Scrollbar styling */
+    .domain-list::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .domain-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .domain-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .domain-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>⏱️ Domain Tracker</h1>
+    <p id="current-date">Today's Activity</p>
+  </div>
+
+  <div class="stats-container">
+    <div class="total-time">
+      <h2>Total Time Today</h2>
+      <div class="time" id="total-time">0h 0m</div>
+    </div>
+
+    <div id="domain-list" class="domain-list">
+      <div class="no-data">
+        <div>📊</div>
+        <h3>No data yet!</h3>
+        <p>Start browsing to see your time tracking</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-clear" id="clear-btn">Clear Data</button>
+    <button class="btn btn-export" id="export-btn">Export</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
